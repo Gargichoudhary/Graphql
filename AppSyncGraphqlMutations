@@ -1,0 +1,12 @@
+mutation MyMutation {
+  addUser(input: {age: 20, email: "John@google.com", name: "John", userId: 1})
+  createOrder(input: {orderAmount: 1000, orderDate: "2020-01-01", orderId: 1, userId: "1"})
+  createPayment(input: {paymentDate: "2020-01-01", orderId: "1", paymentId: 1, status: "Successful"}) {
+    paymentDate
+    paymentId
+    status
+  }
+  deleteOrders(orderId: 1)
+  deletePayment(paymentId: 1)
+  deleteUser(userId: 1)
+}

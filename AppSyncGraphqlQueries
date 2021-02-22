@@ -1,0 +1,53 @@
+query MyQuery {
+  getAllUserOrders(userId: 1) {
+    orderAmount
+    orderDate
+    orderId
+    payments {
+      paymentDate
+      paymentId
+      status
+    }
+  }
+  getAllOrders {
+    orderAmount
+    orderDate
+    orderId
+    payments {
+      paymentDate
+      paymentId
+      status
+    }
+  }
+  getOrder(orderId: 1) {
+    orderAmount
+    orderDate
+    orderId
+    payments {
+      paymentDate
+      paymentId
+      status
+    }
+  }
+  getPayment(paymentId: 1) {
+    paymentDate
+    paymentId
+    status
+  }
+  getUser(id: 1) {
+    age
+    email
+    id
+    name
+    order {
+      orderAmount
+      orderDate
+      orderId
+      payments {
+        paymentDate
+        paymentId
+        status
+      }
+    }
+  }
+}

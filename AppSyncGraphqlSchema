@@ -1,0 +1,63 @@
+input CreateOrderInput {
+	orderId: Int!
+	userId: String!
+	orderAmount: Int
+	orderDate: String
+}
+
+input CreatePaymentInput {
+	paymentId: Int!
+	status: String
+	paymentDate: String
+	orderId: String
+}
+
+input CreateUserInput {
+	userId: Int!
+	name: String!
+	age: Int
+	email: String
+}
+
+type Mutation {
+	addUser(input: CreateUserInput!): String
+	deleteUser(userId: Int!): String
+	createOrder(input: CreateOrderInput!): String
+	deleteOrders(orderId: Int!): String
+	createPayment(input: CreatePaymentInput!): Payment
+	deletePayment(paymentId: Int!): String
+}
+
+type Order {
+	orderId: Int!
+	orderAmount: Int
+	orderDate: String
+	payments: [Payment]
+}
+
+type Payment {
+	paymentId: Int!
+	status: String
+	paymentDate: String
+}
+
+type Query {
+	getUser(id: Int!): User
+	getOrder(orderId: Int!): Order
+	getAllOrders: [Order]
+	getAllUserOrders(userId: Int!): [Order]
+	getPayment(paymentId: Int!): [Payment]
+}
+
+type User {
+	id: Int
+	name: String
+	age: Int
+	email: String
+	order: [Order]
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+}
